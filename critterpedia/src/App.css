@@ -1,38 +1,72 @@
-.App {
+/* FONT LINKS */
+@font-face {
+  font-family: Fink-Heavy;
+  src: url('./assets/FinkHeavy.ttf');
+  font-size: 100%;
+}
+
+@font-face {
+  font-family: Cheri;
+  src: url('./assets/cheri.ttf');
+  font-size: 100%;
+}
+
+@font-face {
+  font-family: Cheri-Solid;
+  src: url('./assets/cheri_solid.ttf');
+  font-size: 100%;
+}
+
+/* COLOR SCHEME */
+
+:root {
+  --teal: #7DD6BC;
+  --tan: ;
+}
+
+/* MAIN STYLING */
+
+body {
+  background-color: var(--teal);
+  margin: 20px;
+}
+
+nav {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  height: 90px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-evenly;
+  margin-top: -20px;
+}
+
+.title {
+  font-size: 2.2em;
+  text-align: right;
+  text-decoration: none;
   color: white;
+  font-family: Cheri;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-links {
+  text-decoration: none;
+  color: white;
+  border-left: 2px solid;
+  padding-left: 10px;
+  font-size: 1em;
+  font-family: Cheri-Solid;
+}
+
+.bug-link {
+  border-left: none;
+  margin-left: -20px;
 }
