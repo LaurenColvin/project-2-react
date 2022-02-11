@@ -97,6 +97,7 @@ For this project I am creating an Animal Crossing Critterpedia resource. The mai
 ## Components 
 
 | Component | Description | 
+| --- | :---: | 
 | App | This will make the initial data pull and include React Router| 
 | Main Search Page | Include search dropdowns that filter results | 
 | Single Critter | Card with critter info that pops out on the side | 
@@ -108,6 +109,7 @@ For this project I am creating an Animal Crossing Critterpedia resource. The mai
 ## MVP
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
 | Create Components with Links/Routes | H | 3hrs| 0hrs | 0hrs |
 | Working with API | H | 3hrs| 0hrs | 0hrs |
 | Display and Style Icons | M | 2hrs| 0hrs | 0hrs |
@@ -120,6 +122,7 @@ For this project I am creating an Animal Crossing Critterpedia resource. The mai
 ## Post-MVP
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
 | Create Carousel of critter data | H | 5hrs| 0hrs | 0hrs |
 | Add calendar of data | H | 3hrs| 0hrs | 0hrs |
 | Add more dropdown search data | H | 3hrs| 0hrs | 0hrs |
