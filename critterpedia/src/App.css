@@ -70,3 +70,13 @@ h1 {
   border-left: none;
   margin-left: -20px;
 }
+
+/* ICON STYLING */
+
+.critter-icon {
+  height: 90px;
+  background-color: tan;
+  border-radius: 100px;
+  box-shadow: 1px 1px 2px 4px grey;
+}
+
