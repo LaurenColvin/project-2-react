@@ -78,5 +78,57 @@ h1 {
   background-color: tan;
   border-radius: 100px;
   box-shadow: 1px 1px 2px 4px grey;
+  margin: 0 35%;
 }
 
+
+h4 {
+  font-family: Cheri-Solid;
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.5em;
+  margin: 15px;
+  padding: 5px 0 3px 0;
+  background-color: tan;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px 2px grey;
+}
+
+/* SEARCH STYLING */
+
+form {
+  text-align: center;
+  line-height: 50px;
+}
+
+.search {
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: Cheri-Solid;
+  font-size: 1.5em;
+}
+
+label {
+  color: white;
+  font-family: Cheri-Solid;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+.submit-button {
+  width: 80px;
+  height: 30px;
+  margin-left: 20px;
+  background-color: tan;
+  border-radius: 10px;
+  box-shadow: .5px .5px 1px 2px grey;
+  color: white;
+  font-family: Cheri-Solid;
+}
+
+.search-result {
+
+}
