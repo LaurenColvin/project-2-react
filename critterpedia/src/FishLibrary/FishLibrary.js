@@ -5,7 +5,8 @@ let urlBase='https://acnhapi.com/v1/fish';
 const FishLibrary = () => {
 
     const [fishData, setFishData] = useState({})
-    // const [singleFish, setSingleFish] = useState({})
+    const [singleFish, setSingleFish] = useState({})
+
 
     useEffect (() => {
         fetch(urlBase)
@@ -16,26 +17,32 @@ const FishLibrary = () => {
 
     let fishNameArray = Object.keys(fishData);
 
-    const icon = fishNameArray.map((critter, index) => {
-        let url = urlBase + "/" + critter
-        let currentFish = {}
-        fetch(url)
+    const name = fishNameArray.map((critter, index) => {
+        const handleClick = (event) => {
+            event.preventDefault();
+            let url = urlBase + "/" + critter
+            fetch(url)
             .then((response) => response.json())
-            .then ((data) => currentFish = data)
-            // .then ((data) => setSingleFish(data))
+            .then ((data) => setSingleFish(data))
             .catch(() => console.log("oops, error"));
+        };
 
         return (
-            <img key={index} className='critter-icon' src={currentFish.icon_uri} alt='icon'/>
+            <h4 key={index} onClick={handleClick}>{critter}</h4>
         )
     })
 
 
     return (
         <div>
-        Fish Library
-        <br/>
-        {icon}
+        {singleFish.id === undefined ? (
+                 <div>
+                    <h4>Choose your fish!</h4>
+                 </div>
+            ) : (
+                <img className='critter-icon' src={singleFish.icon_uri} alt='icon'/> 
+        )}
+        {name}
         </div>
     )
 }
