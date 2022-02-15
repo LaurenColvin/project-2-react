@@ -26,9 +26,9 @@ function App() {
         <div className='main'>
           <Routes>
             <Route path='/' element={<Home caught={caught} setCaught={setCaught}/>} />
-            <Route path='/bugs' element={<BugsLibrary/>} />
-            <Route path='/fish' element={<FishLibrary/>} />
-            <Route path='/diving' element={<DivingLibrary/>} />
+            <Route path='/bugs' element={<BugsLibrary caught={caught} setCaught={setCaught}/>} />
+            <Route path='/fish' element={<FishLibrary caught={caught} setCaught={setCaught}/>} />
+            <Route path='/diving' element={<DivingLibrary caught={caught} setCaught={setCaught}/>} />
             <Route path='/caught' element={<CaughtLibrary caught={caught} setCaught={setCaught}/>} />
           </Routes> 
         </div>
