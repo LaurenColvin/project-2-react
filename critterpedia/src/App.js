@@ -8,6 +8,9 @@ import DivingLibrary from './DivingLibrary/DivingLibrary'
 import CaughtLibrary from './CaughtLibrary/CaughtLibrary'
 
 function App() {
+
+  const [caught, setCaught] = useState([]);
+
   return (
     <div className="App">
       <nav>
@@ -22,11 +25,11 @@ function App() {
       </nav>
         <div className='main'>
           <Routes>
-            <Route path='/' element={<Home/>} />
+            <Route path='/' element={<Home caught={caught} setCaught={setCaught}/>} />
             <Route path='/bugs' element={<BugsLibrary/>} />
             <Route path='/fish' element={<FishLibrary/>} />
             <Route path='/diving' element={<DivingLibrary/>} />
-            <Route path='/caught' element={<CaughtLibrary/>} />
+            <Route path='/caught' element={<CaughtLibrary caught={caught} setCaught={setCaught}/>} />
           </Routes> 
         </div>
     </div>
