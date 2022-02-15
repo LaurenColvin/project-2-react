@@ -1,13 +1,13 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 let urlBase='https://acnhapi.com/v1/';
 
-const Home = () => {
+const Home = (props) => {
 
     const [critterAvailable, setCritterAvailable] = useState(false)
-    const [critterType, setCritterType] = useState("fish")
-    const [currentMonth, setCurrentMonth] = useState("1");
-    const [currentCritter, setCurrentCritter] = useState("Bitterling");
+    const [critterType, setCritterType] = useState("")
+    const [currentMonth, setCurrentMonth] = useState("");
+    const [currentCritter, setCurrentCritter] = useState("");
     const [critterData, setCritterData] = useState({
              "id": 1,
             "file-name": "seaweed",
@@ -120,30 +120,24 @@ const Home = () => {
         .catch(() => console.log("oops, error"));
     };
 
-    const available = critterData.availability;
+    const handleClick = (event) => {
+        event.preventDefault();
+        const caughtCopy = [...props.caught];
+        caughtCopy.push(critterData);
+        props.setCaught(caughtCopy);
+    };
 
-    const searchMonth = () => {
-        let months = available["month-array-northern"]
-        console.log(months)
-    //     for (let i=0; i < months.length; i++) {
-    //     if (months[i] == currentMonth) {
-    //         setCritterAvailable(true)
-    //     } else {
-    //         setCritterAvailable(false)
-    //     }
-    // }
-    //     return (
-    //         <div>{critterAvailable == true ? (
-    //             <div className="search-result">
-    //                 <h4>Yes it is available!</h4>
-    //                 <img className='critter-icon' src={critterData.icon_uri} alt='icon'/>
-    //                 {critterType !== "sea" ? ( <h4>Find it in {available.location}s</h4> ):( <h4>Find it in the ocean</h4> )}
-    //             </div>
-    //         ) : (
-    //             <h4>It is not available!</h4>
-    //         )}</div>
-    //     )
-    }
+    const available = critterData.availability;
+    let months = available["month-array-northern"]
+
+    useEffect (() => {
+        setCritterAvailable(false)
+        for (let i=0; i < months.length; i++) {
+            if ( months[i] == currentMonth) {
+                setCritterAvailable(true)
+            }
+        }
+    }, [critterData])
 
     return (
         <div>
@@ -177,15 +171,15 @@ const Home = () => {
                 <input className="submit-button" type="submit"></input>
             </form>
             <div className='search-result-container'>
-            {available.isAllYear == true ? (
-                <div className="search-result">
-                    <h4>Yes it is available!</h4>
-                    <img className='critter-icon' src={critterData.icon_uri} alt='icon'/>
-                    {critterType !== "sea" ? ( <h4>Find it in {available.location}s</h4> ):( <h4>Find it in the ocean</h4> )}
-                </div>
-            ) : (
-                searchMonth()
-            )}
+                <div>{critterAvailable == true ? (
+                    <div className="search-result">
+                        <h4>Yes it is available!</h4>
+                        <img className='critter-icon' src={critterData.icon_uri} alt='icon' onClick={handleClick}/>
+                        {critterType !== "sea" ? ( <h4>Where to find it:<br/> {available.location}</h4> ):( <h4>Find it in the ocean</h4> )}
+                    </div>
+                    ) : (
+                        <h4>It is not available!</h4>
+                )}</div>
             </div>
         </div>
     )
