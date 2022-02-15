@@ -4,6 +4,7 @@ let urlBase='https://acnhapi.com/v1/';
 
 const Home = () => {
 
+    const [critterAvailable, setCritterAvailable] = useState(false)
     const [critterType, setCritterType] = useState("fish")
     const [currentMonth, setCurrentMonth] = useState("1");
     const [currentCritter, setCurrentCritter] = useState("Bitterling");
@@ -122,9 +123,26 @@ const Home = () => {
     const available = critterData.availability;
 
     const searchMonth = () => {
-        return (
-            <div>SEARCHING</div>
-        )
+        let months = available["month-array-northern"]
+        console.log(months)
+    //     for (let i=0; i < months.length; i++) {
+    //     if (months[i] == currentMonth) {
+    //         setCritterAvailable(true)
+    //     } else {
+    //         setCritterAvailable(false)
+    //     }
+    // }
+    //     return (
+    //         <div>{critterAvailable == true ? (
+    //             <div className="search-result">
+    //                 <h4>Yes it is available!</h4>
+    //                 <img className='critter-icon' src={critterData.icon_uri} alt='icon'/>
+    //                 {critterType !== "sea" ? ( <h4>Find it in {available.location}s</h4> ):( <h4>Find it in the ocean</h4> )}
+    //             </div>
+    //         ) : (
+    //             <h4>It is not available!</h4>
+    //         )}</div>
+    //     )
     }
 
     return (
