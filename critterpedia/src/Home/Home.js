@@ -5,7 +5,8 @@ let urlBase='https://acnhapi.com/v1/';
 const Home = (props) => {
 
     const [critterAvailable, setCritterAvailable] = useState(false)
-    const [critterType, setCritterType] = useState("")
+    const [caughtAlert, setCaughtAlert] = useState(false)
+    const [critterType, setCritterType] = useState("fish")
     const [currentMonth, setCurrentMonth] = useState("");
     const [currentCritter, setCurrentCritter] = useState("");
     const [critterData, setCritterData] = useState({
@@ -122,6 +123,8 @@ const Home = (props) => {
 
     const handleClick = (event) => {
         event.preventDefault();
+        console.log('added to your caught library!')
+        setCaughtAlert(true)
         const caughtCopy = [...props.caught];
         caughtCopy.push(critterData);
         props.setCaught(caughtCopy);
@@ -132,12 +135,14 @@ const Home = (props) => {
 
     useEffect (() => {
         setCritterAvailable(false)
+        setCaughtAlert(false)
         for (let i=0; i < months.length; i++) {
             if ( months[i] == currentMonth) {
                 setCritterAvailable(true)
             }
         }
     }, [critterData])
+
 
     return (
         <div>
@@ -179,6 +184,15 @@ const Home = (props) => {
                     </div>
                     ) : (
                         <h4>It is not available!</h4>
+                )}</div>
+                <div>{caughtAlert == true ? (
+                    <div className="alert">
+                        <h5>This critter has been added to your caught library!</h5>
+                    </div>
+                    ) : (
+                    <div className="alert">
+                        <h5>Click to add this critter to your caught library!</h5>
+                    </div>
                 )}</div>
             </div>
         </div>
