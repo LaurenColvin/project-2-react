@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CaughtLibrary = () => {
+const CaughtLibrary = (props) => {
     return (
         <div>
         Caught Library
