@@ -93,6 +93,7 @@ const Home = (props) => {
             "icon_uri": "https://acnhapi.com/v1/icons/sea/1",
             "museum-phrase": "Let it be known that seaweed is a misnomer of the highest order! That is, it is not a noxious weed so much as it is a marine algae most beneficial to life on land and sea. Seaweed, you see, provides essential habitat and food for all manner of marine creatures. And it creates a great deal of the oxygen we land lovers love to breath too, hoo! And yet, I can't help but shudder when the slimy stuff touches my toes during a swim. Hoot! The horror!"
     });
+    const [availableList, setAvailableList] = useState([])
 
     const typeHandleChange = (event) => {
         event.preventDefault();
@@ -112,14 +113,38 @@ const Home = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        let url = urlBase + critterType + "/" + currentCritter.toLowerCase()
-        console.log(url);
+        // let url = urlBase + critterType + "/" + currentCritter.toLowerCase()
+        // console.log(url);
+        // fetch(url)
+        // .then((response) => response.json())
+        // .then ((data) => setCritterData(data))
+        // .then ((data) => console.log({data}))
+        // .catch(() => console.log("oops, error"));
+        let url = urlBase + critterType 
+        console.log(url)
         fetch(url)
         .then((response) => response.json())
         .then ((data) => setCritterData(data))
-        .then ((data) => console.log({data}))
         .catch(() => console.log("oops, error"));
     };
+
+    let critterNameArray = Object.keys(critterData);
+
+    const icons = critterNameArray.map((critter, index) => {
+
+        const handleClick = (event) => {
+            event.preventDefault();
+            setCurrentCritter(critterData[critterNameArray[index]])
+        };
+
+        let singleData = critterData[critterNameArray[index]]
+        let icon = singleData['icon_uri']
+        
+        return (
+            <img key={index} className='critter-icon library' src={icon} alt='icon' onClick={handleClick}/>
+        )
+    })
+
 
     const handleClick = (event) => {
         event.preventDefault();
@@ -130,18 +155,18 @@ const Home = (props) => {
         props.setCaught(caughtCopy);
     };
 
-    const available = critterData.availability;
-    let months = available["month-array-northern"]
+    // const available = critterData.availability;
+    // let months = available["month-array-northern"]
 
-    useEffect (() => {
-        setCritterAvailable(false)
-        setCaughtAlert(false)
-        for (let i=0; i < months.length; i++) {
-            if ( months[i] == currentMonth) {
-                setCritterAvailable(true)
-            }
-        }
-    }, [critterData])
+    // useEffect (() => {
+    //     setCritterAvailable(false)
+    //     setCaughtAlert(false)
+    //     for (let i=0; i < months.length; i++) {
+    //         if ( months[i] == currentMonth) {
+    //             setCritterAvailable(true)
+    //         }
+    //     }
+    // }, [critterData])
 
 
     return (
@@ -170,30 +195,33 @@ const Home = (props) => {
                         <option  value="12">December</option>
                     </select>
                 <br/>
-                <label> Critter: </label>
+                {/* <label> Critter: </label>
                 <input className="search" type='text' id='critter' onChange={textHandleChange}></input>
-                <br/>
+                <br/> */}
                 <input className="submit-button" type="submit"></input>
             </form>
             <div className='search-result-container'>
                 <div>{critterAvailable == true ? (
                     <div className="search-result">
                         <h4>Yes it is available!</h4>
-                        <img className='critter-icon' src={critterData.icon_uri} alt='icon' onClick={handleClick}/>
-                        {critterType !== "sea" ? ( <h4>Where to find it:<br/> {available.location}</h4> ):( <h4>Find it in the ocean</h4> )}
+                        <img className='critter-icon' src={critterData.icon_uri} alt='icon'/>
+                        {/* {critterType !== "sea" ? ( <h4>Where to find it:<br/> {available.location}</h4> ):( <h4>Find it in the ocean</h4> )} */}
+                        <div>{caughtAlert == true ? (
+                            <div className="alert">
+                                <h5>This critter has been added to your caught library!</h5>
+                            </div>
+                            ) : (
+                            <div className="alert">
+                                <h5 onClick={handleClick}>Click to add this critter to your caught library!</h5>
+                            </div>
+                        )}</div>
                     </div>
                     ) : (
-                        <h4>It is not available!</h4>
+                        <h4>Search by month!</h4>
                 )}</div>
-                <div>{caughtAlert == true ? (
-                    <div className="alert">
-                        <h5>This critter has been added to your caught library!</h5>
-                    </div>
-                    ) : (
-                    <div className="alert">
-                        <h5>Click to add this critter to your caught library!</h5>
-                    </div>
-                )}</div>
+            </div>
+            <div className="icon-list">
+                {icons}
             </div>
         </div>
     )
