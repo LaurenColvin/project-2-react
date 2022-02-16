@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+# Project Overview
+React App using API data
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Links
 
-## Available Scripts
+- [add your github repo link]()
+- [add your deployment link]()
 
-In the project directory, you can run:
+## Project Description
 
-### `npm start`
+For this project I am creating an Animal Crossing Critterpedia resource. The main page helps you search for what critters are available at your specifc day and time. You can click on any critters you catch and they will be added to your caught library. You can also view all bugs, fish or diving critters on their own pages. Scroll through to see all of the things you have yet to catch and plan your strategy based on time of day or year.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[https://acnhapi.com/v1/bugs/32]()
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+{data: {"id": 32,
+"file-name": "red_dragonfly",
+"name": {
+"name-USen": "red dragonfly",
+"name-EUen": "red dragonfly",
+"name-EUde": "Feuerlibelle",
+"name-EUes": "libélula roja",
+"name-USes": "libélula roja",
+"name-EUfr": "sympetrum",
+"name-USfr": "libellule rouge",
+"name-EUit": "libellula rossa",
+"name-EUnl": "rode libel",
+"name-CNzh": "红蜻蜓",
+"name-TWzh": "紅蜻蜓",
+"name-JPja": "アキアカネ",
+"name-KRko": "고추잠자리",
+"name-EUru": "красная стрекоза"
+},
+"availability": {
+"month-northern": "9-10",
+"month-southern": "3-4",
+"time": "8am - 7pm",
+"isAllDay": false,
+"isAllYear": false,
+"location": "Flying",
+"rarity": "Common",
+"month-array-northern": [
+9,
+10
+],
+"month-array-southern": [
+3,
+4
+],
+"time-array": [
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18
+]
+},
+"price": 180,
+"price-flick": 270,
+"catch-phrase": "I caught a red dragonfly! Didn't even have to roll for initiative!",
+"museum-phrase": "I won't deny that the wretched red dragonfly is an elegant aeronaut. It manipulates its four wings quite uniquely so it can hover and maneuver through the air with ease. But the veins on its wings! What ghastly things! One can't help but gasp at the sight of them... Appalling aerodynamics, indeed!",
+"image_uri": "https://acnhapi.com/v1/images/bugs/32",
+"icon_uri": "https://acnhapi.com/v1/icons/bugs/32"} }
+```
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Wireframes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Wireframe Mobile](https://wireframepro.mockflow.com/view/Mwp7JBecunb#/page/b9ef194be98d41b0a223b32011dd39a0)
+- [Wireframe Desktop](https://wireframepro.mockflow.com/view/Mwp7JBecunb#/page/D99736ccabfbb471d6976e50fad8e0f8f)
+- [App Architecture](https://wireframepro.mockflow.com/view/Mwp7JBecunb#/page/D45082a437d1932350ecfeda6e939c439)
+ 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### MVP
+- Find and use external api 
+- Render all critter icons on pages separated by type (bugs, fish, diving) 
+- Search dropdowns that filter results to day and time
+- Clickable critter icons that add a check mark when caught
+- Single critter info that pops up on the side of your search bar
+- Caught library page that displays all your critters
 
-### `npm run eject`
+#### PostMVP
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Add a carousel of all critter info on pages separated by type (bugs, fish, diving) 
+- Add a calendar that shows either what day the bugs are available or what day you caught them
+- Add further drop down searches based on price or how rare they are
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Components 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Component | Description | 
+| --- | :---: | 
+| App | This will make the initial data pull and include React Router| 
+| Main Search Page | Include search dropdowns that filter results | 
+| Single Critter | Card with critter info that pops out on the side | 
+| Caught Library | Icons of all caught critters organized by category | 
+| Fish Library | Icons of all fish critters- carousel with extra data on each individual critter | 
+| Bugs Library | Icons of all bug critters- carousel with extra data on each individual critter  | 
+| Diving Library | Icons of all diving critters- carousel with extra data on each individual critter  | 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## MVP
 
-## Learn More
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Create Components with Links/Routes | H | 3hrs| 0hrs | 0hrs |
+| Working with API | H | 3hrs| 0hrs | 0hrs |
+| Display and Style Icons | M | 2hrs| 0hrs | 0hrs |
+| Create Search dropdowns| H | 3hrs| 0hrs | 0hrs |
+| Filter data based on dropdowns | H | 5hrs| 0hrs | 0hrs |
+| Add clicked icons to Caught Library | M | 2hrs| 0hrs | 0hrs |
+| Create Single Critter info cards | M | 5hrs| 0hrs | 0hrs |
+| Total | H | 23hrs| 0hrs | 0hrs |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Post-MVP
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Create Carousel of critter data | H | 5hrs| 0hrs | 0hrs |
+| Add calendar of data | H | 3hrs| 0hrs | 0hrs |
+| Add more dropdown search data | H | 3hrs| 0hrs | 0hrs |
+| Total | H | 11hrs| 0hrs | 0hrs |
 
-### Code Splitting
+## Additional Libraries
+ Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Code Snippet
 
-### Analyzing the Bundle Size
+Use this section to include a brief code snippet of functionality that you are proud of an a brief description.  Code snippet should not be greater than 10 lines of code. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+function reverse(string) {
+	// here is the code to reverse a string of text
+}
+```
