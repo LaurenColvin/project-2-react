@@ -6,94 +6,13 @@ const Home = (props) => {
 
     const [critterAvailable, setCritterAvailable] = useState(false)
     const [caughtAlert, setCaughtAlert] = useState(false)
+    const [header, setHeader] = useState(false)
     const [critterType, setCritterType] = useState("fish")
-    const [currentMonth, setCurrentMonth] = useState("");
-    const [currentCritter, setCurrentCritter] = useState("");
-    const [critterData, setCritterData] = useState({
-             "id": 1,
-            "file-name": "seaweed",
-            "name": {
-            "name-USen": "seaweed",
-            "name-EUen": "seaweed",
-            "name-EUnl": "zeewier",
-            "name-EUde": "Wakame-Alge",
-            "name-EUes": "alga wakame",
-            "name-USes": "alga wakame",
-            "name-EUfr": "wakame",
-            "name-USfr": "wakamé",
-            "name-EUit": "alga wakame",
-            "name-CNzh": "裙带菜",
-            "name-TWzh": "裙帶菜",
-            "name-JPja": "ワカメ",
-            "name-KRko": "미역",
-            "name-EUru": "морские водоросли"
-            },
-            "availability": {
-            "month-northern": "10-7",
-            "month-southern": "4-1",
-            "time": "",
-            "isAllDay": true,
-            "isAllYear": false,
-            "month-array-northern": [
-            10,
-            11,
-            12,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7
-            ],
-            "month-array-southern": [
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            1
-            ],
-            "time-array": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15,
-            16,
-            17,
-            18,
-            19,
-            20,
-            21,
-            22,
-            23
-            ]
-            },
-            "speed": "Stationary",
-            "shadow": "Large",
-            "price": 600,
-            "catch-phrase": "I got some seaweed! I couldn't kelp myself.",
-            "image_uri": "https://acnhapi.com/v1/images/sea/1",
-            "icon_uri": "https://acnhapi.com/v1/icons/sea/1",
-            "museum-phrase": "Let it be known that seaweed is a misnomer of the highest order! That is, it is not a noxious weed so much as it is a marine algae most beneficial to life on land and sea. Seaweed, you see, provides essential habitat and food for all manner of marine creatures. And it creates a great deal of the oxygen we land lovers love to breath too, hoo! And yet, I can't help but shudder when the slimy stuff touches my toes during a swim. Hoot! The horror!"
-    });
-    const [availableList, setAvailableList] = useState([])
+    const [currentMonth, setCurrentMonth] = useState("1");
+    const [currentCritter, setCurrentCritter] = useState({});
+    const [critterData, setCritterData] = useState({});
+
+    let availableArray = [];
 
     const typeHandleChange = (event) => {
         event.preventDefault();
@@ -105,23 +24,12 @@ const Home = (props) => {
         setCurrentMonth(event.target.value);
     };
 
-     const textHandleChange = (event) => {
-        event.preventDefault();
-        setCurrentCritter(event.target.value);
-    };
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        // let url = urlBase + critterType + "/" + currentCritter.toLowerCase()
-        // console.log(url);
-        // fetch(url)
-        // .then((response) => response.json())
-        // .then ((data) => setCritterData(data))
-        // .then ((data) => console.log({data}))
-        // .catch(() => console.log("oops, error"));
+        setCritterAvailable(false);
+        setHeader(true);
+        availableArray = [];
         let url = urlBase + critterType 
-        console.log(url)
         fetch(url)
         .then((response) => response.json())
         .then ((data) => setCritterData(data))
@@ -132,41 +40,48 @@ const Home = (props) => {
 
     const icons = critterNameArray.map((critter, index) => {
 
-        const handleClick = (event) => {
-            event.preventDefault();
-            setCurrentCritter(critterData[critterNameArray[index]])
-        };
-
         let singleData = critterData[critterNameArray[index]]
-        let icon = singleData['icon_uri']
-        
-        return (
-            <img key={index} className='critter-icon library' src={icon} alt='icon' onClick={handleClick}/>
-        )
+        let availability = singleData.availability
+        let months = availability['month-array-northern']
+
+        for (let i=0; i < months.length; i++) {
+            if ( months[i] == currentMonth) {
+                const availableCopy = [...availableArray];
+                availableCopy.push(singleData);
+                availableArray = availableCopy
+            }
+        }
     })
 
+    const iconsAvailable = availableArray.map((critter, index) => {
+        let icon = critter['icon_uri']
+        let name = critter.name['name-USen']
+        
+        const handleClick = (event) => {
+            event.preventDefault();
+            setCurrentCritter(availableArray[index])
+            console.log(availableArray[index])
+            setCritterAvailable(true);
+            setCaughtAlert(false);
+        };
+
+        return (
+            <div>
+                <img key={index} className='critter-icon library' src={icon} alt='icon' onClick={handleClick}/>
+                <p>{name}</p>
+            </div>
+        )
+
+    })
 
     const handleClick = (event) => {
         event.preventDefault();
         console.log('added to your caught library!')
         setCaughtAlert(true)
         const caughtCopy = [...props.caught];
-        caughtCopy.push(critterData);
+        caughtCopy.push(currentCritter);
         props.setCaught(caughtCopy);
     };
-
-    // const available = critterData.availability;
-    // let months = available["month-array-northern"]
-
-    // useEffect (() => {
-    //     setCritterAvailable(false)
-    //     setCaughtAlert(false)
-    //     for (let i=0; i < months.length; i++) {
-    //         if ( months[i] == currentMonth) {
-    //             setCritterAvailable(true)
-    //         }
-    //     }
-    // }, [critterData])
 
 
     return (
@@ -195,17 +110,21 @@ const Home = (props) => {
                         <option  value="12">December</option>
                     </select>
                 <br/>
-                {/* <label> Critter: </label>
-                <input className="search" type='text' id='critter' onChange={textHandleChange}></input>
-                <br/> */}
                 <input className="submit-button" type="submit"></input>
             </form>
             <div className='search-result-container'>
                 <div>{critterAvailable == true ? (
                     <div className="search-result">
-                        <h4>Yes it is available!</h4>
-                        <img className='critter-icon' src={critterData.icon_uri} alt='icon'/>
-                        {/* {critterType !== "sea" ? ( <h4>Where to find it:<br/> {available.location}</h4> ):( <h4>Find it in the ocean</h4> )} */}
+                        <div className='critter-details'>
+                                <img className='critter-icon details' src={currentCritter['icon_uri']} alt='icon'/> 
+                                <div className='details-container'>
+                                    <h3>Rarity: <span>{currentCritter.availability.rarity}</span></h3>
+                                    <h3>Sells for: <span>{currentCritter.price} bells</span></h3>
+                                    <h3>Shadow Size: <span>{currentCritter.shadow}</span></h3>
+                                </div>
+                            </div>
+                            <h4 className='details-name'>{currentCritter.name['name-USen']}</h4>
+                        {critterType !== "sea" ? ( <h4>Where to find it:<br/> {currentCritter.availability.location}</h4> ):( <h4>Find it in the ocean</h4> )}
                         <div>{caughtAlert == true ? (
                             <div className="alert">
                                 <h5>This critter has been added to your caught library!</h5>
@@ -217,11 +136,13 @@ const Home = (props) => {
                         )}</div>
                     </div>
                     ) : (
-                        <h4>Search by month!</h4>
+                        <div>
+                        {critterAvailable == false ? (<h4>Search for critters by month!</h4>):(<h4>Click on the icon for more info!</h4>)}
+                        </div>
                 )}</div>
             </div>
             <div className="icon-list">
-                {icons}
+                {iconsAvailable}
             </div>
         </div>
     )
