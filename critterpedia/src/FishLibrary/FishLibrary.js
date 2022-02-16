@@ -62,7 +62,7 @@ const FishLibrary = (props) => {
                                     <h3>Shadow Size: <span>{singleFish.shadow}</span></h3>
                                 </div>
                             </div>
-                            <h4>{singleFish['file-name']}</h4>
+                            <h4 className='details-name'>{singleFish['file-name']}</h4>
                             <div>{caughtAlert == true ? (
                                     <div className="alert">
                                         <h5>This critter has been added to your caught library!</h5>

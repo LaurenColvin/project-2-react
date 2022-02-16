@@ -144,6 +144,11 @@ span {
   color: var(--green);
 }
 
+.details-name {
+  background-color: white;
+  color: black;
+}
+
 /* SEARCH STYLING */
 
 form {

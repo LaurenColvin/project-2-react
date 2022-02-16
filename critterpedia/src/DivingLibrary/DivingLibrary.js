@@ -63,7 +63,7 @@ const DivingLibrary = (props) => {
                                 <h3>Shadow Size: <span>{singleSea.shadow}</span></h3>
                             </div>
                         </div>
-                        <h4>{singleSea['file-name']}</h4>
+                        <h4 className='details-name'>{singleSea['file-name']}</h4>
                         <div>{caughtAlert == true ? (
                                 <div className="alert">
                                     <h5>This critter has been added to your caught library!</h5>
