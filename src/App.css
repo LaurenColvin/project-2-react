@@ -32,6 +32,8 @@ body {
   margin: 20px;
 }
 
+/* NAV STYLING */
+
 nav {
   text-align: center;
   position: sticky;
@@ -80,6 +82,23 @@ h1 {
   top: 200px;
   background-color: var(--teal);
   padding: 30px;
+}
+
+/* LANDING PAGE STYLING */
+
+.critter-of-the-day {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+}
+
+.loading {
+  background-color: var(--green);
+}
+
+
+.catch-phrase {
+  font-size: 1.5em;
 }
 
 /* LIBRARIES STYLING */
