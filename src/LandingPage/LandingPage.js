@@ -31,13 +31,11 @@ const LandingPage = () => {
         if (currentCritter !== undefined) {
         return (
             <div>
-                <h4 className='details-name'>{currentCritter.name['name-USen']}</h4>
-                <div className='critter-details'>
-                    <img className='critter-icon details' src={currentCritter['icon_uri']} alt='icon'/> 
-                        <div className='details-container'>
-                            <h4>Catch Prase:</h4>
-                            <p className='catch-phrase'>{currentCritter['catch-phrase']}</p>
-                        </div>
+                <h2 >{currentCritter.name['name-USen']}</h2>
+                <div className="random-critter">
+                    <img className='icon-random' src={currentCritter['icon_uri']} alt='icon'/> 
+                    <h2>Catch Prase:</h2>
+                    <p className='catch-phrase'>{currentCritter['catch-phrase']}</p>
                 </div>
             </div>
         )
@@ -50,6 +48,7 @@ const LandingPage = () => {
     return (
         <div>
             <h4>Welcome to Critterpedia!</h4>
+            <p className='description'> I created this website for all Animal Crossing lovers! Time to catch some bugs, fish and sea creatures with better precision. Explore all the critters of Animal Crossing and search by month to see what is available right now!</p>
             <h3 className='critter-of-the-day'>Critter of the day:</h3>
             <div>{critterData !== undefined ? (
                 getCritter()
