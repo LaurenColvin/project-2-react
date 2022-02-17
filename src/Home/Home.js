@@ -16,11 +16,13 @@ const Home = (props) => {
 
     const typeHandleChange = (event) => {
         event.preventDefault();
+        setCritterAvailable(false);
         setCritterType(event.target.value);
     };
 
     const listHandleChange = (event) => {
         event.preventDefault();
+        setCritterAvailable(false);
         setCurrentMonth(event.target.value);
     };
 
@@ -87,63 +89,65 @@ const Home = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label> Type: </label>
-                <select className="search" id="type" onChange={typeHandleChange}>
-                        <option  value="fish">Fish</option>
-                        <option  value="bugs">Bug</option>
-                        <option  value="sea">Sea Creature</option>
-                    </select>
-                <br/>
-                <label> Month: </label>
-                    <select className="search" id="month" onChange={listHandleChange}>
-                        <option  value="1">January</option>
-                        <option  value="2">Feburary</option>
-                        <option  value="3">March</option>
-                        <option  value="4">April</option>
-                        <option  value="5">May</option>
-                        <option  value="6">June</option>
-                        <option  value="7">July</option>
-                        <option  value="8">August</option>
-                        <option  value="9">September</option>
-                        <option  value="10">October</option>
-                        <option  value="11">November</option>
-                        <option  value="12">December</option>
-                    </select>
-                <br/>
+                <div className='type'>
+                    <label> Type: </label>
+                    <select className="search" id="type" onChange={typeHandleChange}>
+                            <option  value="fish">Fish</option>
+                            <option  value="bugs">Bug</option>
+                            <option  value="sea">Sea Creature</option>
+                        </select>
+                    <br/>
+                </div>
+                <div className='month'>
+                    <label> Month: </label>
+                        <select className="search" id="month" onChange={listHandleChange}>
+                            <option  value="1">January</option>
+                            <option  value="2">Feburary</option>
+                            <option  value="3">March</option>
+                            <option  value="4">April</option>
+                            <option  value="5">May</option>
+                            <option  value="6">June</option>
+                            <option  value="7">July</option>
+                            <option  value="8">August</option>
+                            <option  value="9">September</option>
+                            <option  value="10">October</option>
+                            <option  value="11">November</option>
+                            <option  value="12">December</option>
+                        </select>
+                    <br/>
+                </div>
                 <input className="submit-button" type="submit"></input>
             </form>
-            <div className='search-result-container'>
-                <div>{critterAvailable == true ? (
-                    <div className="search-result">
-                        <div className='critter-details'>
-                                <img className='critter-icon details' src={currentCritter['icon_uri']} alt='icon'/> 
-                                <div className='details-container'>
-                                    <h3>Rarity: <span>{currentCritter.availability.rarity}</span></h3>
-                                    <h3>Sells for: <span>{currentCritter.price} bells</span></h3>
-                                    <h3>Shadow Size: <span>{currentCritter.shadow}</span></h3>
-                                </div>
-                            </div>
+                <div className='search-result-container'>
+                    <div>{critterAvailable == true ? (
+                        <div className="search-result">
                             <h4 className='details-name'>{currentCritter.name['name-USen']}</h4>
-                        {critterType !== "sea" ? ( <h4>Where to find it:<br/> {currentCritter.availability.location}</h4> ):( <h4>Find it in the ocean</h4> )}
-                        <div>{caughtAlert == true ? (
-                            <div className="alert">
-                                <h5>This critter has been added to your caught library!</h5>
-                            </div>
-                            ) : (
-                            <div className="alert">
-                                <h5 onClick={handleClick}>Click to add this critter to your caught library!</h5>
-                            </div>
-                        )}</div>
-                    </div>
-                    ) : (
-                        <div>
-                        {critterAvailable == false ? (<h4>Search for critters by month!</h4>):(<h4>Click on the icon for more info!</h4>)}
+                            <div className='critter-details'>
+                                    <img className='critter-icon details' src={currentCritter['icon_uri']} alt='icon'/> 
+                                    <div className='details-container'>
+                                        {critterType !== "sea" ? ( <h3 className='search-details'>Rarity: <br/><span>{currentCritter.availability.rarity}</span></h3> ):( <h3 className='search-details'>Shadow size: <br/><span>{currentCritter.shadow}</span></h3> )}
+                                        {critterType !== "sea" ? ( <h3 className='search-details'>Find it:<br/> <span>{currentCritter.availability.location}</span></h3> ):( <h3 className='search-details'>Speed: <br/><span>{currentCritter.speed}</span></h3> )}
+                                    </div>
+                                </div>
+                            <div>{caughtAlert == true ? (
+                                <div>
+                                    <h5 className="alert">This critter has been added to your caught library!</h5>
+                                </div>
+                                ) : (
+                                <div>
+                                    <h5 onClick={handleClick}>Click to add this critter to your caught library!</h5>
+                                </div>
+                            )}</div>
                         </div>
-                )}</div>
-            </div>
-            <div className="icon-list">
-                {iconsAvailable}
-            </div>
+                        ) : (
+                            <div>
+                            {critterAvailable == false ? (<h4 className='search-by-month'>Search for critters by month!</h4>):(<h4>Click on the icon for more info!</h4>)}
+                            </div>
+                    )}</div>
+                </div>
+                <div className="icon-list">
+                    {iconsAvailable}
+                </div>
         </div>
     )
 }

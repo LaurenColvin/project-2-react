@@ -56,7 +56,7 @@ const FishLibrary = (props) => {
                         <div>
                             <div className='critter-details'>
                                 <img className='critter-icon details' src={singleFish.icon_uri} alt='icon'/> 
-                                <div className='details-container'>
+                                <div className='library-details'>
                                     <h3>Rarity: <span>{singleFish.availability.rarity}</span></h3>
                                     <h3>Sells for: <span>{singleFish.price} bells</span></h3>
                                     <h3>Shadow Size: <span>{singleFish.shadow}</span></h3>
@@ -64,11 +64,11 @@ const FishLibrary = (props) => {
                             </div>
                             <h4 className='details-name'>{singleFish.name['name-USen']}</h4>
                             <div>{caughtAlert == true ? (
-                                    <div className="alert">
-                                        <h5>This critter has been added to your caught library!</h5>
+                                    <div>
+                                        <h5 className="alert">This critter has been added to your caught library!</h5>
                                     </div>
                                 ) : (
-                                    <div className="alert">
+                                    <div>
                                         <h5 onClick={handleClick}>Add this critter to your caught library!</h5>
                                     </div>
                             )}</div>

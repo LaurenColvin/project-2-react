@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import { Route, Link, Routes, Navigate } from "react-router-dom";
 let urlBase='https://acnhapi.com/v1/';
 
 const LandingPage = () => {
@@ -49,6 +50,7 @@ const LandingPage = () => {
         <div>
             <h4>Welcome to Critterpedia!</h4>
             <p className='description'> I created this website for all Animal Crossing lovers! Time to catch some bugs, fish and sea creatures with better precision. Explore all the critters of Animal Crossing and search by month to see what is available right now!</p>
+            <button><Link to='/home' className='home-button'>Click Here to Search by Month</Link></button>
             <h3 className='critter-of-the-day'>Critter of the day:</h3>
             <div>{critterData !== undefined ? (
                 getCritter()
