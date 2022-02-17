@@ -68,7 +68,7 @@ const Home = (props) => {
         return (
             <div>
                 <img key={index} className='critter-icon library' src={icon} alt='icon' onClick={handleClick}/>
-                <p>{name}</p>
+                <p className='search-name'>{name}</p>
             </div>
         )
 
