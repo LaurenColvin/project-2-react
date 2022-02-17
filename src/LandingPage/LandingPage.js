@@ -20,33 +20,41 @@ const LandingPage = () => {
         .then((response) => response.json())
         .then ((data) => setCritterData(data))
         .catch(() => console.log("oops, error"));
+        getCritter()
     }, [])
 
-    useEffect (() => {
+    const getCritter = () => {
         let critterArray = Object.keys(critterData);
         let randomCritter = Math.floor(Math.random() * critterArray.length);
-        currentCritter = critterData[critterArray[randomCritter]]
-        console.log(critterData[critterArray[randomCritter]])
-    }, [critterData])
+        currentCritter = (critterData[critterArray[randomCritter]])
+        console.log(currentCritter)
+        if (currentCritter !== undefined) {
+        return (
+            <div>
+                <h4 className='details-name'>{currentCritter.name['name-USen']}</h4>
+                <div className='critter-details'>
+                    <img className='critter-icon details' src={currentCritter['icon_uri']} alt='icon'/> 
+                        <div className='details-container'>
+                            <h4>Catch Prase:</h4>
+                            <p className='catch-phrase'>{currentCritter['catch-phrase']}</p>
+                        </div>
+                </div>
+            </div>
+        )
+        }
+    }
 
-    console.log(currentCritter['catch-phrase'])
+
+    console.log(currentCritter)
 
     return (
         <div>
             <h4>Welcome to Critterpedia!</h4>
-            <h1>Critter of the day:</h1>
-            <div>{currentCritter == undefined ? (
-                <div>
-                    <div className='critter-details'>
-                        <img className='critter-icon details' src={currentCritter['icon_uri']} alt='icon'/> 
-                            <div className='details-container'>
-                                <h4>{currentCritter['catch-phrase']}</h4>
-                            </div>
-                    </div>
-                    <h4 className='details-name'>{currentCritter.name['name-USen']}</h4>
-                </div>
+            <h3 className='critter-of-the-day'>Critter of the day:</h3>
+            <div>{critterData !== undefined ? (
+                getCritter()
                 ):(
-                <h4>Loading...</h4>
+                <h4 className="loading">Loading...</h4>
             )}
             </div>
         </div>
