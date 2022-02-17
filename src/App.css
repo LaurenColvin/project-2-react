@@ -32,6 +32,25 @@ body {
   margin: 20px;
 }
 
+p {
+  font-family: Cheri-Solid;
+  text-align: center;
+  color: black;
+  font-size: .6em;
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 5px 0 3px 0;
+}
+
+.critter-icon {
+  height: 90px;
+  background-color: tan;
+  border-radius: 100px;
+  box-shadow: 1px 1px 2px 4px grey;
+  margin: 0 35%;
+  padding: 10px;
+}
+
 /* NAV STYLING */
 
 nav {
@@ -52,7 +71,7 @@ nav {
 }
 
 .title {
-  font-size: 2.2em;
+  font-size: 1.8em;
   text-align: right;
   text-decoration: none;
   color: white;
@@ -67,8 +86,8 @@ h1 {
   text-decoration: none;
   color: white;
   border-left: 2px solid;
-  padding-left: 10px;
-  font-size: 1em;
+  padding-left: 17px;
+  font-size: .8em;
   font-family: Cheri-Solid;
 }
 
@@ -86,31 +105,52 @@ h1 {
 
 /* LANDING PAGE STYLING */
 
+.description {
+  font-size: 1em;
+  text-align: justify;
+  margin: 0 30px;
+}
+
 .critter-of-the-day {
-  font-size: 2em;
+  font-size: 1.5em;
   color: white;
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: -25px;
 }
 
 .loading {
   background-color: var(--green);
 }
 
-
 .catch-phrase {
   font-size: 1.5em;
+  margin-bottom: 20px;
+  color: var(--green)
+}
+
+.random-critter {
+  background-color: white;
+  border-radius: 500px;
+  box-shadow: 1px 1px 2px 2px grey;
+  padding: 30px;
+}
+
+h2 {
+  text-align: center;
+  color: black;
+  font-size: 2em;
+  font-family: Cheri;
+  margin-bottom: 0;
+}
+
+.icon-random {
+  margin: 0 30%;
+  margin-top: -10px;
+  margin-bottom: -30px;
 }
 
 /* LIBRARIES STYLING */
-
-.critter-icon {
-  height: 90px;
-  background-color: tan;
-  border-radius: 100px;
-  box-shadow: 1px 1px 2px 4px grey;
-  margin: 0 35%;
-  padding: 10px;
-}
 
 .library {
   margin: 10px;
@@ -120,20 +160,6 @@ h1 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-}
-
-p {
-  font-family: Cheri-Solid;
-  text-align: center;
-  color: black;
-  text-transform: capitalize;
-  font-size: .6em;
-  margin: 0;
-  margin-bottom: 30px;
-  padding: 5px 0 3px 0;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 1px 1px 2px 2px grey;
 }
 
 h4 {
@@ -195,6 +221,13 @@ form {
   border-radius: 10px;
   font-family: Cheri-Solid;
   font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.search-name {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px 2px grey;
 }
 
 label {
@@ -243,4 +276,32 @@ h5 {
 .caught {
   margin: 15px 5px;
   background-color: var(--green);
+}
+
+
+/*RESPONSIVE DESIGN */
+
+@media only screen and (min-width: 768px) {
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+  nav {
+    border-bottom: 6px solid;
+  }
+
+  @font-face {
+    font-family: Cheri;
+    src: url('./assets/cheri.ttf');
+    font-size: 200%;
+  }
+  
+  @font-face {
+    font-family: Cheri-Solid;
+    src: url('./assets/cheri_solid.ttf');
+    font-size: 200%;
+  }
+
 }
