@@ -32,6 +32,16 @@ body {
   margin: 20px;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  min-height: 560px;
+  z-index: 1;
+}
+
 p {
   font-family: Cheri-Solid;
   text-align: center;
@@ -51,6 +61,17 @@ p {
   padding: 10px;
 }
 
+h6 {
+  text-align: right;
+  margin: 0;
+}
+
+footer {
+  width: 100%;
+  margin-top: 20px;
+  flex-shrink: 0;
+}
+
 /* NAV STYLING */
 
 nav {
@@ -58,16 +79,38 @@ nav {
   position: sticky;
   top: 0;
   background-color: var(--teal);
+  z-index: 2;
 }
 
 .logo {
   height: 90px;
 }
 
-.nav-bar {
+.menu-icon {
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: tan;
+  border-radius: 500px;
+  z-index: 3;
+}
+
+.nav-bar-open {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
   margin-top: -20px;
+  margin-right: -20px;
+  padding: 20px;
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  right: 0;
+}
+
+.nav-bar-closed {
+  display: none;
 }
 
 .title {
@@ -84,12 +127,11 @@ h1 {
 
 .nav-links {
   text-decoration: none;
-  color: white;
-  border-left: 2px solid;
-  padding-left: 50%;
-  padding-right: 50%;
-  font-size: .6em;
-  font-family: Cheri-Solid;
+  color: black;
+  font-size: 1em;
+  font-family: Cheri;
+  margin: 0;
+  padding: 0;
 }
 
 .bug-link {
@@ -99,7 +141,7 @@ h1 {
 
 .icon-container {
   position: sticky;
-  top: 190px;
+  top: 140px;
   background-color: var(--teal);
   padding: 30px;
 }
@@ -174,6 +216,23 @@ button {
   color: white;
 }
 
+/* ABOUT STYLING */
+
+.my-character {
+  margin: 30px auto;
+  display: block;
+  border-radius: 100px;
+  height: 300px;
+}
+
+h1 {
+  font-size: 1.8em;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-family: Cheri;
+}
+
 /* LIBRARIES STYLING */
 
 .library {
@@ -222,8 +281,6 @@ h4 {
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 1px 2px 2px grey;
-  height: 100px;
-  margin-top: 25px;
   margin-left: 15px;
 }
 
@@ -242,7 +299,7 @@ span {
   color: black;
   margin: 10px auto;
   display: block;
-  width: 350px;
+  width: 80%;
 }
 
 .alert {
@@ -255,7 +312,7 @@ form {
   text-align: center;
   line-height: 50px;
   position: sticky;
-  top: 190px;
+  top: 145px;
   background-color: var(--teal)
 }
 
@@ -266,7 +323,7 @@ form {
 
 .search-result-container {
   position: sticky;
-  top: 340px;
+  top: 295px;
   background-color: var(--teal)
 }
 
@@ -297,6 +354,7 @@ label {
   width: 80px;
   height: 30px;
   margin-left: 20px;
+  margin-bottom: 20px;
   background-color: var(--green);
   border-radius: 10px;
   box-shadow: .5px .5px 1px 2px grey;
@@ -347,6 +405,10 @@ h5 {
 
 /* MAIN STYLING */
 
+.main {
+  min-height: 650px;
+}
+
 .title {
   font-size: 2.5em;
 }
@@ -354,7 +416,7 @@ h5 {
 h3 {
   font-family: Cheri-Solid;
   color: black;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 h4 {
@@ -368,6 +430,10 @@ h5 {
   margin: 20px auto;
   display: block;
   font-size: 1.5em;
+}
+
+.nav-bar-open {
+  width: 30%;
 }
 
 /* LANDING PAGE STYLING */
@@ -388,7 +454,7 @@ h5 {
     align-content: center;
     padding-top: 30px;
     padding-bottom: 10px;
-    top: 215px;
+    top: 150px;
   }
 
   .submit-button {
@@ -401,7 +467,7 @@ h5 {
 
   .search-result-container {
     position: sticky;
-    top: 305px;
+    top: 240px;
     padding-bottom: 10px;
   }
 
@@ -410,7 +476,7 @@ h5 {
   }
 
   .details-name {
-    font-size: 2em;
+    font-size: 1.6em;
   }
 
   .search-name {
@@ -448,8 +514,8 @@ h5 {
 .details {
   background-color: white;
   padding: 30px;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background-size: 100%;
   border-radius: 1000px;
 }
@@ -462,8 +528,24 @@ h5 {
   width: 300px;
 }
 
+.details-name {
+  width: 50%;
+}
+
+.icon-container {
+  top: 170px;
+}
+
 }
 
 @media only screen and (min-width: 1024px) {
+
+  .nav-bar-open {
+    width: 20%;
+  }
+
+  .details-name {
+    width: 30%;
+  }
 
 }
