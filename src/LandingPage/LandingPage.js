@@ -47,7 +47,7 @@ const LandingPage = () => {
     console.log(currentCritter)
 
     return (
-        <div>
+        <div className='landing-page'>
             <h4>Welcome to Critterpedia!</h4>
             <p className='description'> I created this website for all Animal Crossing lovers! Time to catch some bugs, fish and sea creatures with better precision. Explore all the critters of Animal Crossing and search by month to see what is available right now!</p>
             <button><Link to='/home' className='home-button'>Click Here to Search by Month</Link></button>
