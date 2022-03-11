@@ -1,9 +1,4 @@
 /* FONT LINKS */
-@font-face {
-  font-family: Fink-Heavy;
-  src: url('./assets/FinkHeavy.ttf');
-  font-size: 100%;
-}
 
 @font-face {
   font-family: Cheri;
@@ -21,7 +16,6 @@
 
 :root {
   --teal: #7DD6BC;
-  --tan: ;
   --green: #80BF70;
 }
 
@@ -96,6 +90,16 @@ nav {
   z-index: 3;
 }
 
+.menu-title {
+  position: absolute;
+  margin-top: 60px;
+  top: 0;
+  right: 0;
+  border-radius: 500px;
+  z-index: 3;
+  font-size: 1.3em;
+}
+
 .nav-bar-open {
   display: flex;
   flex-direction: column;
@@ -115,14 +119,19 @@ nav {
 
 .title {
   font-size: 1.8em;
-  text-align: right;
   text-decoration: none;
   color: white;
   font-family: Cheri;
+  margin-left: -10px;
 }
 
 h1 {
   margin: 0;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-family: Cheri;
 }
 
 .nav-links {
@@ -132,11 +141,6 @@ h1 {
   font-family: Cheri;
   margin: 0;
   padding: 0;
-}
-
-.bug-link {
-  border-left: none;
-  margin-left: -20px;
 }
 
 .icon-container {
@@ -225,14 +229,6 @@ button {
   height: 300px;
 }
 
-h1 {
-  font-size: 1.8em;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-family: Cheri;
-}
-
 /* LIBRARIES STYLING */
 
 .library {
@@ -316,6 +312,10 @@ form {
   background-color: var(--teal)
 }
 
+.option {
+  color: black;
+}
+
 .search-by-month {
   margin: 0 auto;
   display: block;
@@ -352,7 +352,6 @@ label {
 
 .submit-button {
   width: 80px;
-  height: 30px;
   margin-left: 20px;
   margin-bottom: 20px;
   background-color: var(--green);
@@ -410,7 +409,7 @@ h5 {
 }
 
 .title {
-  font-size: 2.5em;
+  font-size: 3em;
 }
 
 h3 {

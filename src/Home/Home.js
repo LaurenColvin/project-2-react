@@ -92,27 +92,27 @@ const Home = (props) => {
         <div className="type">
           <label> Type: </label>
           <select className="search" id="type" onChange={typeHandleChange}>
-            <option value="fish">Fish</option>
-            <option value="bugs">Bug</option>
-            <option value="sea">Sea Creature</option>
+            <option className='option' value="fish">Fish</option>
+            <option className='option' value="bugs">Bug</option>
+            <option className='option' value="sea">Sea Creature</option>
           </select>
           <br />
         </div>
         <div className="month">
           <label> Month: </label>
           <select className="search" id="month" onChange={listHandleChange}>
-            <option value="1">January</option>
-            <option value="2">Feburary</option>
-            <option value="3">March</option>
-            <option value="4">April</option>
-            <option value="5">May</option>
-            <option value="6">June</option>
-            <option value="7">July</option>
-            <option value="8">August</option>
-            <option value="9">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
+            <option className='option' value="1">January</option>
+            <option className='option' value="2">Feburary</option>
+            <option className='option' value="3">March</option>
+            <option className='option' value="4">April</option>
+            <option className='option' value="5">May</option>
+            <option className='option' value="6">June</option>
+            <option className='option' value="7">July</option>
+            <option className='option' value="8">August</option>
+            <option className='option' value="9">September</option>
+            <option className='option' value="10">October</option>
+            <option className='option' value="11">November</option>
+            <option className='option' value="12">December</option>
           </select>
           <br />
         </div>

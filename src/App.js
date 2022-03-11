@@ -34,6 +34,7 @@ function App() {
           src="https://dodo.ac/np/images/thumb/4/4c/Celeste_NH_Character_Icon.png/120px-Celeste_NH_Character_Icon.png"
           alt="character"
         />
+        <h3 className="menu-title">MENU</h3>
         <h1>
           <Link className="title" to="/home">
             Critterpedia
@@ -43,7 +44,7 @@ function App() {
           <h2>
             <Link
               onClick={toggleMenu}
-              className="nav-links bug-link"
+              className="nav-links"
               to="/project-2-react"
             >
               Home

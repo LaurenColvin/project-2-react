@@ -55,7 +55,7 @@ const LandingPage = () => {
       </p>
       <button>
         <Link to="/home" className="home-button">
-          Click Here to Search by Month
+          Click Here to Search
         </Link>
       </button>
       <h3 className="critter-of-the-day">Critter of the day:</h3>
