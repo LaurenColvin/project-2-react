@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Link, Routes, Router } from "react-router-dom";
 import { useState } from "react";
 import Home from "./Home/Home";
 import About from "./About/About";
@@ -9,6 +9,7 @@ import FishLibrary from "./FishLibrary/FishLibrary";
 import DivingLibrary from "./DivingLibrary/DivingLibrary";
 import CaughtLibrary from "./CaughtLibrary/CaughtLibrary";
 import Footer from "./Footer/Footer";
+import ScrollTop from "./ScrollTop/ScrollTop";
 
 function App() {
   const [caught, setCaught] = useState([]);
@@ -87,30 +88,32 @@ function App() {
         </div>
       </nav>
       <div className="main">
-        <Routes>
-          <Route path="/project-2-react" element={<LandingPage />} />
-          <Route
-            path="/home"
-            element={<Home caught={caught} setCaught={setCaught} />}
-          />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/bugs"
-            element={<BugsLibrary caught={caught} setCaught={setCaught} />}
-          />
-          <Route
-            path="/fish"
-            element={<FishLibrary caught={caught} setCaught={setCaught} />}
-          />
-          <Route
-            path="/diving"
-            element={<DivingLibrary caught={caught} setCaught={setCaught} />}
-          />
-          <Route
-            path="/caught"
-            element={<CaughtLibrary caught={caught} setCaught={setCaught} />}
-          />
-        </Routes>
+          <ScrollTop>
+            <Routes>
+                <Route path="/project-2-react" element={<LandingPage />} />
+                <Route
+                  path="/home"
+                  element={<Home caught={caught} setCaught={setCaught} />}
+                />
+                <Route path="/about" element={<About />} />
+                <Route
+                  path="/bugs"
+                  element={<BugsLibrary caught={caught} setCaught={setCaught} />}
+                />
+                <Route
+                  path="/fish"
+                  element={<FishLibrary caught={caught} setCaught={setCaught} />}
+                />
+                <Route
+                  path="/diving"
+                  element={<DivingLibrary caught={caught} setCaught={setCaught} />}
+                />
+                <Route
+                  path="/caught"
+                  element={<CaughtLibrary caught={caught} setCaught={setCaught} />}
+                />
+              </Routes>
+          </ScrollTop>
       </div>
       <Footer />
     </div>
