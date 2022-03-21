@@ -1,5 +1,5 @@
-# Critterpedia :bug: :tropical_fish: :shell:
-React App using API data
+# :bug: Critterpedia :tropical_fish:  
+React App using third-party API data
 - [Github Repo](https://github.com/LaurenColvin/project-2-react)
 - [Deployed App](https://laurencolvin.github.io/project-2-react/)
 
