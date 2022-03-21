@@ -1,6 +1,6 @@
 # :bug: Critterpedia :tropical_fish:  
 React App using third-party API data.  
-Check it out [here](https://laurencolvin.github.io/project-2-react/)
+Check out the [live site!](https://laurencolvin.github.io/project-2-react/)
 
 ## Project Description
 
