@@ -1,11 +1,11 @@
 # :bug: Critterpedia :tropical_fish:  
 React App using third-party API data.  
 Check out the [live site!](https://laurencolvin.github.io/project-2-react/)
-![alt text](./src/assets/Critterpedia-project-2.png)
 
 ## Project Description
 
 For this project I created an Animal Crossing Critterpedia resource. The main page helps you search for what critters are available at a specific month. You can click on any critters you catch and they will be added to your caught library. You can also view all bugs, fish or diving critters on their own pages. Scroll through to see all of the things you have yet to catch and plan your strategy based on month.
+![alt text](./src/assets/Critterpedia-project-2.png)
 
 ## API
 
